@@ -27,22 +27,22 @@ class AccessToken
         $this->expiryTime = time() + $lifetime;
     }
 
-    public function getLifetime(): int
+    public function getLifetime()
     {
         return $this->lifetime;
     }
 
-    public function getToken(): string
+    public function getToken()
     {
         return $this->token;
     }
 
-    public function isValid(): bool
+    public function isValid()
     {
         return time() < $this->expiryTime;
     }
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->token;
     }

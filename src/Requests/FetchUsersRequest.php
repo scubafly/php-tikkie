@@ -13,12 +13,12 @@ class FetchUsersRequest extends AbstractRequest
         $this->platformToken = $platformToken;
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function getUri(): string
+    public function getUri()
     {
         return "v1/tikkie/platforms/{$this->platformToken}/users";
     }

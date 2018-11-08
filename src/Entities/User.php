@@ -53,7 +53,7 @@ class User extends AbstractEntity
         'bankAccountLabel', 'iban', 'name', 'phoneNumber', 'platformToken', 'status', 'userToken'
     ];
 
-    public function isActive(): bool
+    public function isActive()
     {
         return $this->status === static::STATUS_ACTIVE;
     }
@@ -75,7 +75,7 @@ class User extends AbstractEntity
         }
     }
 
-    public function save(): self
+    public function save()
     {
         $this->getTikkie()->persistUser($this);
 

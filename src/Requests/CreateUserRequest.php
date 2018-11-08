@@ -15,20 +15,20 @@ class CreateUserRequest extends AbstractRequest
         $this->user = $user;
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function getUri(): string
+    public function getUri()
     {
         return "v1/tikkie/platforms/{$this->user->platformToken}/users";
     }
 
-    public function getPayload(): ?array
+    public function getPayload()
     {
         $user = $this->user;
-        
+
         return [
             'name' => $user->name,
             'phoneNumber' => $user->phoneNumber,

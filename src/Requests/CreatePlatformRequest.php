@@ -15,20 +15,20 @@ class CreatePlatformRequest extends AbstractRequest
         $this->platform = $platform;
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function getUri(): string
+    public function getUri()
     {
         return 'v1/tikkie/platforms';
     }
 
-    public function getPayload(): ?array
+    public function getPayload()
     {
         $platform = $this->platform;
-        
+
         return [
             'email' => $platform->email,
             'name' => $platform->name,

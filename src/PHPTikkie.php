@@ -25,12 +25,12 @@ class PHPTikkie
         $this->environment = $environment;
     }
 
-    public function getEnvironment(): Environment
+    public function getEnvironment()
     {
         return $this->environment;
     }
 
-    public function newPaymentRequest(string $platformToken, string $userToken, string $bankAccountToken, array $attributes = []): PaymentRequest
+    public function newPaymentRequest(string $platformToken, string $userToken, string $bankAccountToken, array $attributes = [])
     {
         $paymentRequest = new PaymentRequest($this);
 
@@ -50,7 +50,7 @@ class PHPTikkie
         $paymentRequest->setAttributes($response->getData());
     }
 
-    public function paymentRequest(string $platformToken, string $userToken, string $paymentRequestToken): PaymentRequest
+    public function paymentRequest(string $platformToken, string $userToken, string $paymentRequestToken)
     {
         $response = $this->environment->send(new FetchPaymentRequestRequest($platformToken, $userToken, $paymentRequestToken));
 
@@ -64,7 +64,7 @@ class PHPTikkie
     /**
      * @return PaymentRequest[]
      */
-    public function paymentRequests(string $platformToken, string $userToken, int $offset, int $limit, DateTimeInterface $fromDate = null, DateTimeInterface $toDate = null): array
+    public function paymentRequests(string $platformToken, string $userToken, int $offset, int $limit, DateTimeInterface $fromDate = null, DateTimeInterface $toDate = null)
     {
         $response = $this->environment->send(new FetchPaymentRequestsRequest($platformToken, $userToken, $offset, $limit, $fromDate, $toDate));
 
@@ -80,7 +80,7 @@ class PHPTikkie
         return $paymentRequests;
     }
 
-    public function newPlatform(array $attributes = []): Platform
+    public function newPlatform(array $attributes = [])
     {
         $platform = new Platform($this);
 
@@ -99,7 +99,7 @@ class PHPTikkie
     /**
      * @return Platform[]
      */
-    public function platforms(): array
+    public function platforms()
     {
         $response = $this->environment->send(new FetchPlatformsRequest);
 
@@ -115,7 +115,7 @@ class PHPTikkie
         return $platforms;
     }
 
-    public function newUser(string $platformToken, array $attributes = []): User
+    public function newUser(string $platformToken, array $attributes = [])
     {
         $user = new User($this);
 
@@ -136,7 +136,7 @@ class PHPTikkie
     /**
      * @return User[]
      */
-    public function users(string $platformToken): array
+    public function users(string $platformToken)
     {
         $response = $this->environment->send(new FetchUsersRequest($platformToken));
 

@@ -10,7 +10,7 @@ class PaymentRequest extends AbstractEntity
     const STATUS_EXPIRED = 'EXPIRED';
     const STATUS_MAX_YIELD_REACHED = 'MAX_YIELD_REACHED';
     const STATUS_MAX_SUCCESSFUL_PAYMENTS_REACHED = 'MAX_SUCCESSFUL_PAYMENTS_REACHED';
-    
+
     /**
      * @var string
      */
@@ -112,7 +112,7 @@ class PaymentRequest extends AbstractEntity
         }
     }
 
-    public function save(): self
+    public function save()
     {
         $this->getTikkie()->persistPaymentRequest($this);
 

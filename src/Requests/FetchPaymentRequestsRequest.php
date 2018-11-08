@@ -35,12 +35,12 @@ class FetchPaymentRequestsRequest extends AbstractRequest
         $this->parameters = $params;
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function getUri(): string
+    public function getUri()
     {
         return "v1/tikkie/platforms/{$this->platformToken}/users/{$this->userToken}/paymentrequests";
     }
@@ -48,7 +48,7 @@ class FetchPaymentRequestsRequest extends AbstractRequest
     /**
      * Use UTC time zone and return ISO-8601 format.
      */
-    protected function formatDateTime(DateTimeInterface $date): string
+    protected function formatDateTime(DateTimeInterface $date)
     {
         return (new DateTime)
             ->setTimestamp($date->getTimestamp())

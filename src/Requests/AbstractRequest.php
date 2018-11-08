@@ -20,21 +20,21 @@ abstract class AbstractRequest
      */
     protected $requestOptions;
 
-    public function getParameters(): ?array
+    public function getParameters()
     {
         return $this->parameters;
     }
 
-    public function getPayload(): ?array
+    public function getPayload()
     {
         return $this->payload;
     }
 
-    public function getRequestOptions(): ?array
+    public function getRequestOptions()
     {
         return [];
     }
 
-    abstract public function getMethod(): string;
-    abstract public function getUri(): string;
+    abstract public function getMethod()
+    abstract public function getUri()
 }

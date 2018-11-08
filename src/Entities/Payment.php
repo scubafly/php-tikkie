@@ -52,7 +52,7 @@ class Payment extends AbstractEntity
         'amountCurrency', 'amountInCents', 'counterPartyName', 'description', 'onlinePaymentStatus', 'paymentToken'
     ];
 
-    public function isPaid(): bool
+    public function isPaid()
     {
         return $this->onlinePaymentStatus === static::STATUS_PAID;
     }

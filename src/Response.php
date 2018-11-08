@@ -34,12 +34,12 @@ class Response
         }
     }
 
-    public function getData(): array
+    public function getData()
     {
         return $this->data;
     }
 
-    public function getTraceId(): string
+    public function getTraceId()
     {
         return $this->traceId;
     }

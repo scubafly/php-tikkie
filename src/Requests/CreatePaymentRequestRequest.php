@@ -15,20 +15,20 @@ class CreatePaymentRequestRequest extends AbstractRequest
         $this->paymentRequest = $paymentRequest;
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function getUri(): string
+    public function getUri()
     {
         return "v1/tikkie/platforms/{$this->paymentRequest->platformToken}/users/{$this->paymentRequest->userToken}/bankaccounts/{$this->paymentRequest->bankAccountToken}/paymentrequests";
     }
 
-    public function getPayload(): ?array
+    public function getPayload()
     {
         $paymentRequest = $this->paymentRequest;
-        
+
         return [
             'amountInCents' => $paymentRequest->amountInCents,
             'currency' => $paymentRequest->currency,

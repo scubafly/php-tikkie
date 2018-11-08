@@ -71,7 +71,7 @@ class Environment
         $this->hashAlgorithm = $hashAlgorithm;
     }
 
-    protected function getAccessToken(): AccessToken
+    protected function getAccessToken()
     {
         if ($this->accessToken && $this->accessToken->isValid()) {
             return $this->accessToken;
@@ -80,7 +80,7 @@ class Environment
         return $this->accessToken = $this->requestAccessToken();
     }
 
-    protected function getJsonWebToken(): string
+    protected function getJsonWebToken()
     {
         if (empty($this->privateKey)) {
             throw new AccessTokenException("Cannot create JSON Web Token because no Private Key has been set.");
@@ -100,7 +100,7 @@ class Environment
     /**
      * @throws AccessTokenException
      */
-    protected function requestAccessToken(): AccessToken
+    protected function requestAccessToken()
     {
         try {
             $response = $this->httpClient->request('POST', '/v1/oauth/token', [
@@ -125,7 +125,7 @@ class Environment
         }
     }
 
-    protected function getRequestOptions(AbstractRequest $request): array
+    protected function getRequestOptions(AbstractRequest $request)
     {
         $options = [
             RequestOptions::HEADERS => [
@@ -149,7 +149,7 @@ class Environment
     /**
      * @throws RequestException
      */
-    public function send(AbstractRequest $request): Response
+    public function send(AbstractRequest $request)
     {
         try {
             $response = $this->httpClient->request(
@@ -157,7 +157,7 @@ class Environment
                 $request->getUri(),
                 $this->getRequestOptions($request)
             );
-            
+
             if (in_array($response->getStatusCode(), [200, 201])) {
                 return new Response($response);
             }

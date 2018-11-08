@@ -3,12 +3,12 @@ namespace PHPTikkie\Requests;
 
 class FetchPlatformsRequest extends AbstractRequest
 {
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function getUri(): string
+    public function getUri()
     {
         return 'v1/tikkie/platforms';
     }

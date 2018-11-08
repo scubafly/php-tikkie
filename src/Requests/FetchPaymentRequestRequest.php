@@ -25,12 +25,12 @@ class FetchPaymentRequestRequest extends AbstractRequest
         $this->paymentRequestToken = $paymentRequestToken;
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function getUri(): string
+    public function getUri()
     {
         return "v1/tikkie/platforms/{$this->platformToken}/users/{$this->userToken}/paymentrequests/{$this->paymentRequestToken}";
     }

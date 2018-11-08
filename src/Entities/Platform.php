@@ -51,12 +51,12 @@ class Platform extends AbstractEntity
         'email', 'name', 'notificationUrl', 'phoneNumber', 'platformUsage', 'platformToken', 'status'
     ];
 
-    public function isActive(): bool
+    public function isActive()
     {
         return $this->status === static::STATUS_ACTIVE;
     }
 
-    public function save(): self
+    public function save()
     {
         $this->getTikkie()->persistPlatform($this);
 

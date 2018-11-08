@@ -20,7 +20,7 @@ abstract class AbstractEntity
         $this->tikkie = $tikkie;
     }
 
-    protected function getTikkie(): PHPTikkie
+    protected function getTikkie()
     {
         return $this->tikkie;
     }

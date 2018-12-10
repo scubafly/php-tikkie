@@ -35,6 +35,6 @@ abstract class AbstractRequest
         return [];
     }
 
-    abstract public function getMethod()
-    abstract public function getUri()
+    abstract public function getMethod();
+    abstract public function getUri();
 }
